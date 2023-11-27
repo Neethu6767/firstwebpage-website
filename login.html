@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>
+        Login and Registration Form
+    </title>
+    <style>
+        input,textarea,select,button{
+            padding:10px;
+            border:3px solid #808080;
+        }
+    </style>
+    <script>
+        function handleclick() {
+            alert('you click me')
+        }
+        
+        </script>
+    </head>
+<body>
+<form action="http://axlitacademy.com/verify/" method="get" enctype="multipart/form-data">
+    <label>User Id<input id="lname" name="lname" onblur="return confirm('Do you want to lose focus?')" onfocus="this.value='focoused'"/></label><br />
+    <label for="pwd">Password</label>
+    <input id="pwd" name="pwd" type="password" /><br />
+    <button onclick="handleclick()">Login</button>
+    <br />
+    <input type="checkbox" id="remme" /><label for="remme">Remember me</label>
+</form>
+<form enctype="multipart/form-data" method="post">
+    <h1>
+        Registration Form
+    </h1>
+    <fieldset>
+        <legend>SignUp</legend>
+        <label>First Name</label><br/>
+        <input id="fname" name="fname"><br/>
+        <label>Last Name</label><br/>
+        <input id="lname" name="lname"><br/>
+        <label>Address</label><br/>
+        <textarea id="add" name="add"></textarea><br/>
+        <label>District</label><br/>
+                               <select name="district" id="district">
+                                   <option>-Select any-</option>
+                                   <option value="10">Kollam</option>
+                                   <option value="11">Kottayam</option>
+                                   <option selected value="12">Ernakulam</option>
+                               </select><br/>
+        <label>Hobbies</label><br/>
+                              <select multiple name="hobby" id="hobby">
+                                  <option>Select Any</option>
+                                  <option>Painting</option>
+                                  <option>Singing</option>
+                                  <option>Reading</option>
+
+                              </select>
+        <label>Profile picture</label><br/>
+        <input type="file" id="pp" name="pp"><br/>
+        <label>Gender</label>
+        <label> <input value="male" type="radio" name="gender">Male</label>
+        <input value="female" type="radio" name="gender"><label>Female</label>
+        <button>Submit</button>
+
+    </fieldset>
+    </form>
+    </body>
+    
+</html>
+ 
+ 
