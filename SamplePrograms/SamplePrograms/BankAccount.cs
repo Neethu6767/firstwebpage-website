@@ -68,27 +68,29 @@ namespace SamplePrograms
         {
             Console.WriteLine($"Bank Name: {bankName}");
         }
-    
 
-    static void Main()
-    {
-        BankAccount.DisplayBankName();
 
-        // Creating an account with an initial balance
-        BankAccount account = new BankAccount("123456", 1000.0, 100.0);
-        Console.WriteLine($"Initial balance: {account.CheckBalance()}");
-
-        Console.Write("Enter amount to withdraw: ");
-        if (double.TryParse(Console.ReadLine(), out double amountToWithdraw))
+        static void Main()
         {
-            if (account.Withdraw(amountToWithdraw))
+            BankAccount.DisplayBankName();
+
+            // Creating an account with an initial balance
+            BankAccount account = new BankAccount("123456", 1000.0, 100.0);
+            Console.WriteLine($"Initial balance: {account.CheckBalance()}");
+
+            Console.Write("Enter amount to withdraw: ");
+            if (double.TryParse(Console.ReadLine(), out double amountToWithdraw))
             {
-                account.DisplayBalance(); // Display balance after withdrawal
+                if (account.Withdraw(amountToWithdraw))
+                {
+                    account.DisplayBalance(); // Display balance after withdrawal
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a numeric value.");
             }
         }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a numeric value.");
-        }
     }
+}
 
