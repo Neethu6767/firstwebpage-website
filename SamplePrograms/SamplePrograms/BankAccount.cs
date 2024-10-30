@@ -9,19 +9,25 @@ namespace SamplePrograms
     class BankAccount
     {
 
-        private const string bankName = "Canera";
-        private static double rateOfInterest = 0.05;
+
+        
+        const string bankName = "Canera";
+        public static double rateOfInterest = 0.05;
         private double minBalance;
         private double currentBalance;
         private string accNumber;
+        
         public BankAccount(string accNum, double initialBalance, double minBal)
         {
             accNumber = accNum;
             currentBalance = initialBalance;
             minBalance = minBal;
+         
+
         }
-
-
+       
+       
+        
         public void SetAccountNumber(string accNum)
         {
             accNumber = accNum;
@@ -70,27 +76,43 @@ namespace SamplePrograms
         }
 
 
-        static void Main()
+
+
+        static void Main(string[] args)
         {
-            BankAccount.DisplayBankName();
 
-            // Creating an account with an initial balance
-            BankAccount account = new BankAccount("123456", 1000.0, 100.0);
-            Console.WriteLine($"Initial balance: {account.CheckBalance()}");
+            BankAccount account = new BankAccount("123456", 10000, 500);
 
-            Console.Write("Enter amount to withdraw: ");
-            if (double.TryParse(Console.ReadLine(), out double amountToWithdraw))
-            {
-                if (account.Withdraw(amountToWithdraw))
-                {
-                    account.DisplayBalance(); // Display balance after withdrawal
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a numeric value.");
-            }
+            Console.WriteLine($"Welcome to {BankAccount.bankName}!");
+            Console.WriteLine($"Current Rate of Interest: {BankAccount.rateOfInterest}%");
+
+           
+
+            
+            
+                Console.WriteLine("Account validated successfully.");
+                Console.WriteLine($"Current balance:{10000}");
+
+                Console.WriteLine($"Minimum balance: {500}");
+
+                Console.Write("Enter amount to withdraw: ");
+                double amountToWithdraw = double.Parse(Console.ReadLine());
+
+                account.Withdraw(amountToWithdraw);
+            account.DisplayBalance();
+                Console.ReadKey();
+            
+            
+           
+
+            Console.WriteLine("Thank you for banking with us!");
         }
     }
 }
+    
+
+
+
+
+        
 

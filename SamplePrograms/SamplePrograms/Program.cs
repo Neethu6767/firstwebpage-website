@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,22 +19,22 @@ namespace SamplePrograms
                 private const double EURConversionRate = 0.011;
                 private const double AUDConversionRate = 0.018;
                 private const double GBPConversionRate = 0.009;
-                public static decimal ConvertToUSD(double amountInINR)
+                public static double ConvertToUSD(double amountInINR)
                 {
                     return Convert.ToInt32(amountInINR * USDConversionRate);
                 }
 
-                public static decimal ConvertToEUR(double amountInINR)
+                public static double ConvertToEUR(double amountInINR)
                 {
                     return Convert.ToInt32(amountInINR * EURConversionRate);
                 }
 
-                public static decimal ConvertToAUD(double amountInINR)
+                public static double ConvertToAUD(double amountInINR)
                 {
                     return Convert.ToInt32(amountInINR * AUDConversionRate);
                 }
 
-                public static decimal ConvertToGBP(double amountInINR)
+                public static double ConvertToGBP(double amountInINR)
                 {
                     return Convert.ToInt32(amountInINR * GBPConversionRate);
                 }
@@ -46,8 +48,6 @@ namespace SamplePrograms
 
                 Console.Write("Enter amount in Indian Rupees (INR): ");
                 double amountInINR;
-
-                // Validate input
                 while (!double.TryParse(Console.ReadLine(), out amountInINR) || amountInINR < 0)
                 {
                     Console.Write("Please enter a valid amount in INR: ");
