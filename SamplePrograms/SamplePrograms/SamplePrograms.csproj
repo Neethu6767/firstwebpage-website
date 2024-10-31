@@ -33,7 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SamplePrograms.BankAccount</StartupObject>
+    <StartupObject>SamplePrograms.EmployeeData_1</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
+    <Compile Include="EmployeeData.cs" />
+    <Compile Include="Employee_1.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
