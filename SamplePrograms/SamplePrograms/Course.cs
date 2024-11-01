@@ -24,7 +24,7 @@ namespace SamplePrograms
     }
         class TestCourse
         {
-            static void main(string[] args)
+            static void Main(string[] args)
             {
                 List<Course> listcourse = new List<Course>
                 {
@@ -35,7 +35,11 @@ namespace SamplePrograms
 
 
                 };
-                var shortCourses = listcourse.Where(c => c.Duration < 3).ToList();
+            var courseNames = listcourse.Select(c => c.Name).ToList();
+            Console.WriteLine("All Course Names:");
+            courseNames.ForEach(Console.WriteLine);
+
+            var shortCourses = listcourse.Where(c => c.Duration < 3).ToList();
                 var coursenames = shortCourses.Select(c => c.Name).ToList();
                 Console.WriteLine("Course name with lessthan 3 months");
                 foreach(var coursename in coursenames)
@@ -50,10 +54,24 @@ namespace SamplePrograms
                     Console.WriteLine(sortedlist);
 
                 }
-                var totfee = listcourse.Sum(c => c.Fees);
-                Console.WriteLine("\nTotal fees: {totfee:c}");
 
-                Console.ReadLine();
+
+                decimal totfee = listcourse.Sum(c => c.Fees);
+                Console.WriteLine($"\nTotal fees: {totfee}");
+
+            var groupedCourses = new
+            {
+                LessThan3Months = listcourse.Where(c => c.Duration < 3).ToList(),
+                LessThan6Months = listcourse.Where(c => c.Duration < 6).ToList()
+            };
+            Console.WriteLine("Courses with Duration Less than 3 Months:");
+            groupedCourses.LessThan3Months.ForEach(c => Console.WriteLine(c.Name));
+
+
+            Console.WriteLine("Courses with Duration Less than 6 Months:");
+            groupedCourses.LessThan6Months.ForEach(c => Console.WriteLine(c.Name));
+
+            Console.ReadLine();
 
 
             }
