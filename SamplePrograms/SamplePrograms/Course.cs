@@ -9,11 +9,11 @@ namespace SamplePrograms
     class Course
     {
         public string Name { get; set; }
-        public int Duration { get; set; } 
+        public int Duration { get; set; }
         public decimal Fees { get; set; }
         public DateTime StartDate { get; set; }
-        
-        public Course(string name,int duration,decimal fees,DateTime startdate)
+
+        public Course(string name, int duration, decimal fees, DateTime startdate)
         {
             Name = name;
             Duration = duration;
@@ -21,6 +21,7 @@ namespace SamplePrograms
             StartDate = startdate;
 
         }
+    }
         class TestCourse
         {
             static void main(string[] args)
@@ -59,4 +60,4 @@ namespace SamplePrograms
         }
 
     }
-}
+
