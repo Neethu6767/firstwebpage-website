@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SamplePrograms.EmployeeData_1</StartupObject>
+    <StartupObject>SamplePrograms.FaceRecognitionAuthentication.testInterface</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -53,6 +53,7 @@
     <Compile Include="EmployeeData.cs" />
     <Compile Include="Employee_1.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="MobileAuthenticationInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

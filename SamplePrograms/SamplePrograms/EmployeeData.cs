@@ -55,7 +55,7 @@ namespace SamplePrograms
 
             foreach (var employee in empDictionary.Values)
             {
-                Console.WriteLine($"ID: {employee.Id}, Name: {employee.Name}");
+                Console.WriteLine("ID: {employee.Id}, Name: {employee.Name}");
                 
             }
             Console.WriteLine("Enter Employee ID");
@@ -70,10 +70,10 @@ namespace SamplePrograms
                 Console.WriteLine("not found");
             }
             string upname = "Anu";
-            if (empDictionary.ContainsValue(upname))
+            if (empDictionary.ContainsKey(sid))
             {
-                empDictionary[upname] = "Achu";
-                Console.WriteLine($"Updated employee ID {upname} to new name: {empDictionary[upname]}");
+                empDictionary[sid].Name = "Achu";
+                Console.WriteLine($"Updated employee ID {upname} to new name: {empDictionary[sid].Name}");
             }
             int removeId = 3;
             if (empDictionary.Remove(removeId))
@@ -84,6 +84,7 @@ namespace SamplePrograms
             {
                 Console.WriteLine($"Employee with ID {removeId} not found.");
             }
+            Console.ReadKey();
 
 
         }

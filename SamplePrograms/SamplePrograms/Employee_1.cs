@@ -45,9 +45,9 @@ namespace SamplePrograms
         static void Main(string[] args)
         {
             
-            Employee_1 emp1 = new Employee_1("Anu","Sarath",  "Female", 50000m, new DateTime(1990, 5, 15));
-            Employee_1 emp2 = new Employee_1("Bincy", "Lekshmi", "Female", 60000m, new DateTime(1985, 8, 25));
-            Employee_1 emp3 = new Employee_1("Sam",  "Sun","Male", 55000m, new DateTime(1992, 12, 30));
+            Employee_1 emp1 = new Employee_1("Anu","Sarath",  "Female", 50000, new DateTime(1990, 5, 15));
+            Employee_1 emp2 = new Employee_1("Bincy", "Lekshmi", "Female", 60000, new DateTime(1985, 8, 25));
+            Employee_1 emp3 = new Employee_1("Sam",  "Sun","Male", 55000, new DateTime(1992, 12, 30));
 
          
             emp1.DisplayEmployeeDetails();
