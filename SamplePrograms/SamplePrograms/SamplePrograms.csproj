@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="EmployeeData.cs" />
     <Compile Include="Employee_1.cs" />
     <Compile Include="ExceptionHandling.cs" />
