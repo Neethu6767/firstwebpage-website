@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SamplePrograms.FaceRecognitionAuthentication.testInterface</StartupObject>
+    <StartupObject>SamplePrograms.TestUser</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -52,10 +52,12 @@
     <Compile Include="BankAccount.cs" />
     <Compile Include="EmployeeData.cs" />
     <Compile Include="Employee_1.cs" />
+    <Compile Include="ExceptionHandling.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MobileAuthenticationInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

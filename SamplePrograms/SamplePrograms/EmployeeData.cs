@@ -63,15 +63,17 @@ namespace SamplePrograms
 
             if (empDictionary.ContainsKey(sid))
             {
-                Console.WriteLine(empDictionary[sid]);
+                Console.WriteLine($"ID:{empDictionary[sid].Id},Name:{empDictionary[sid].Name}");
             }
             else
             {
                 Console.WriteLine("not found");
             }
-            string upname = "Anu";
+            Console.WriteLine("Enter Employee ID to be updated");
+             sid = Convert.ToInt32(Console.ReadLine());
             if (empDictionary.ContainsKey(sid))
             {
+                string upname = empDictionary[sid].Name;
                 empDictionary[sid].Name = "Achu";
                 Console.WriteLine($"Updated employee ID {upname} to new name: {empDictionary[sid].Name}");
             }
