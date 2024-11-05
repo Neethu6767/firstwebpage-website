@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SamplePrograms.TestCourse</StartupObject>
+    <StartupObject>SamplePrograms.CRUD_OPERATION</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="CRUD_OPERATION.cs" />
     <Compile Include="EmployeeData.cs" />
     <Compile Include="Employee_1.cs" />
     <Compile Include="ExceptionHandling.cs" />
