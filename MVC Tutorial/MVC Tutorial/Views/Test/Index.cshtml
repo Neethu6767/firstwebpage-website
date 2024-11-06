@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<table class="table table-striped">
+    <tr>
+        <th>
+            Name List
+        </th>
+    <tr>
+        <body>
+            @if (ViewBag.NameList != null)
+            {
+                foreach (var item in ViewBag.NameList)
+                {
+            <tr>
+                <td>
+                    @item
+                </td>
+            </tr>
+        }
+
+                }
+                </body>
+            </table>
+
