@@ -1,0 +1,30 @@
+﻿@model IEnumerable< WebApp.Models.Employees>
+@{
+    ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<table class="table table-striped" style="width:60%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department</th>
+    </tr>
+    <tbody>
+       
+        
+            @foreach (var item in ViewData["EmployeeList"] as List<WebApp.Models.Employees>)
+            {
+                <tr>
+                <td>@item.EmployeeID</td>
+                <td>@item.Name</td>
+                <td>@item.Department</td>
+                    </tr>
+
+            }
+        
+        <tr>
+        </tr>
+    </tbody>
+    </table>
+
