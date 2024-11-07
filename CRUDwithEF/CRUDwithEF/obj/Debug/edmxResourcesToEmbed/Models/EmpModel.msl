@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CRUDwithEFModelStoreContainer" CdmEntityContainer="CRUDwithEFEntities1">
+    <EntitySetMapping Name="EmpDetails">
+      <EntityTypeMapping TypeName="CRUDwithEFModel.EmpDetail">
+        <MappingFragment StoreEntitySet="EmpDetails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPcode" ColumnName="EMPcode" />
+          <ScalarProperty Name="EMPname" ColumnName="EMPname" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

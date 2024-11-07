@@ -1,0 +1,41 @@
+﻿@model IEnumerable <CRUDwithEF.Models.EmpDetail>
+
+@{ ViewBag.Title = "Employees List"; }
+
+<h2>Employees</h2>
+
+<table class="table">
+    <tr>
+        <th>Employee Code</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.ID</td>
+    <td>@item.EMPcode</td>
+    <td>@item.EMPname</td>
+    <td>@item.Designation</td>
+
+    <td>@item.Salary</td>
+
+
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ID)
+                @Html.ValidationMessageFor(model => model.ID)
+            </div>
+        </div>
+
+</tr>}
+
+</table>
