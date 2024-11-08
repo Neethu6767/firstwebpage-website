@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="Branchname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="IMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branch" />
+    <FunctionImport Name="sp_delete_branch">
+      <Parameter Name="bid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_find_branch" ReturnType="Collection(IMSModel.sp_find_branch_Result)">
+      <Parameter Name="bid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_insert_branch">
+      <Parameter Name="bid" Mode="In" Type="Int32" />
+      <Parameter Name="bname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_select_branch" ReturnType="Collection(IMSModel.sp_select_branch_Result)" />
+    <FunctionImport Name="sp_update_branch">
+      <Parameter Name="bid" Mode="In" Type="Int32" />
+      <Parameter Name="bname" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_find_branch_Result">
+    <Property Type="Int32" Name="BranchId" Nullable="false" />
+    <Property Type="String" Name="Branchname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_select_branch_Result">
+    <Property Type="Int32" Name="BranchId" Nullable="false" />
+    <Property Type="String" Name="Branchname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>
