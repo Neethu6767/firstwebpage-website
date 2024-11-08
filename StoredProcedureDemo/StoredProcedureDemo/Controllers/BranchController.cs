@@ -28,8 +28,20 @@ namespace StoredProcedureDemo.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var s = db.sp_find_branch(id).FirstOrDefault();
+           var s = db.sp_find_branch(id).FirstOrDefault();
             return View(s);
+        }
+        [HttpPost]
+        public ActionResult Edit(Branch b)
+        {
+            db.sp_update_branch(b.BranchId, b.Branchname);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+
+        {
+            db.sp_delete_branch(id);
+            return RedirectToAction("Index");
         }
     }
 }

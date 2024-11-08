@@ -13,10 +13,10 @@ namespace CRUDwithEF.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CRUDwithEFEntities2 : DbContext
+    public partial class CRUDwithEFEntities3 : DbContext
     {
-        public CRUDwithEFEntities2()
-            : base("name=CRUDwithEFEntities2")
+        public CRUDwithEFEntities3()
+            : base("name=CRUDwithEFEntities3")
         {
         }
     

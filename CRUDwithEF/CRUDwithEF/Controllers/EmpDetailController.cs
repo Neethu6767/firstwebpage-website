@@ -14,9 +14,8 @@ namespace CRUDwithEF.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.EmpDetails.ToList());
+            return View(from empDetail in db.EmpDetails.Take(3) select empDetail);
         }
-
         // GET: Employees/Create
         public ActionResult Create()
         {
@@ -25,7 +24,7 @@ namespace CRUDwithEF.Controllers
 
         // POST: Employees/Create
         [HttpPost]
-        
+
         public ActionResult Create([Bind(Include = "ID,EMPcode,EMPname,Designation,Salary")] EmpDetail employee)
         {
             if (ModelState.IsValid)
@@ -37,6 +36,8 @@ namespace CRUDwithEF.Controllers
 
             return View(employee);
         }
+
+
 
     }
 }
