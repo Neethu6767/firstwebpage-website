@@ -10,7 +10,17 @@
     <Property Name="Designation" Type="varchar" MaxLength="50" />
     <Property Name="Salary" Type="int" />
   </EntityType>
+  <EntityType Name="Student_Data">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="int" Nullable="false" />
+    <Property Name="Sname" Type="varchar" MaxLength="50" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="Addres" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityContainer Name="CRUDwithEFModelStoreContainer">
     <EntitySet Name="EmpDetails" EntityType="Self.EmpDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Data" EntityType="Self.Student_Data" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

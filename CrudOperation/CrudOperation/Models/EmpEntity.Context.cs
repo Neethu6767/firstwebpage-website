@@ -26,5 +26,6 @@ namespace CrudOperation.Models
         }
     
         public virtual DbSet<EmpDetail> EmpDetails { get; set; }
+        public virtual DbSet<Student_Data> Student_Data { get; set; }
     }
 }

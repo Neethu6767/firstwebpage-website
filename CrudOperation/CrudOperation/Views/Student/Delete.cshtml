@@ -1,0 +1,26 @@
+﻿
+
+@model CrudOperation.Models.Student_Data
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this student?</h3>
+
+<form method="post" action="@Url.Action("Delete", "Student")">
+
+    <label for="sid">Student ID</label>
+    @Html.TextBoxFor(a => a.Sid, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="sname">Student Name</label>
+    @Html.TextBoxFor(a => a.Sname, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="depart">Department</label>
+    @Html.TextBoxFor(a => a.Department, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="Add">Address</label>
+    @Html.TextBoxFor(a => a.Addres, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px;"> Delete</button>
+</form>

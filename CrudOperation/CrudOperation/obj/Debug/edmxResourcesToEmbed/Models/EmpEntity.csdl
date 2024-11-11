@@ -12,5 +12,15 @@
   </EntityType>
   <EntityContainer Name="CRUDwithEFEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="EmpDetails" EntityType="Self.EmpDetail" />
+    <EntitySet Name="Student_Data" EntityType="CRUDwithEFModel.Student_Data" />
   </EntityContainer>
+  <EntityType Name="Student_Data">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="Int32" Nullable="false" />
+    <Property Name="Sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Addres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

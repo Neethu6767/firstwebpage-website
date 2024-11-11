@@ -12,5 +12,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Student_Data">
+      <EntityTypeMapping TypeName="CRUDwithEFModel.Student_Data">
+        <MappingFragment StoreEntitySet="Student_Data">
+          <ScalarProperty Name="Addres" ColumnName="Addres" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Sname" ColumnName="Sname" />
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
