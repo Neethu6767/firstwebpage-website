@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<CrudOperation.Models.EmpDetail>
+@{
+    ViewBag.Title = "Index";
+}
+<html><head>
+
+    </head>
+<body>
+    <div>
+        <h4>EMPLOYEE DETAILS</h4>
+        <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Code</th>
+                    <th>Employee Name</th>
+                    <th>Designation</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var EmpDetail in Model)
+                {
+                    <tr>
+                        <td>@EmpDetail.ID</td>
+                        <td>@EmpDetail.EMPcode</td>
+                        <td>@EmpDetail.EMPname</td>
+                        <td>@EmpDetail.Designation</td>
+                        <td>@EmpDetail.Salary</td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+
+</html>
+

@@ -10,7 +10,7 @@ namespace CRUDwithEF.Controllers
 {
     public class EmpDetailController : Controller
     {
-        private CRUDwithEFEntities2 db = new CRUDwithEFEntities2();
+        private CRUDwithEFEntities3 db = new CRUDwithEFEntities3();
         // GET: Employees
         public ActionResult Index()
         {

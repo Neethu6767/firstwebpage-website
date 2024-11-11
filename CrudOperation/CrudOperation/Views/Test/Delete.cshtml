@@ -1,0 +1,29 @@
+﻿
+@model CrudOperation.Models.EmpDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Edit</h2>
+<form method="post" action="@Url.Action("Delete", "Test")">
+    <label for="eid">Employee ID</label>
+    @Html.TextBoxFor(a => a.ID, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="ecode">Employee Code</label>
+    @Html.TextBoxFor(a => a.EMPcode, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="ename">Name</label>
+    @Html.TextBoxFor(a => a.EMPname, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="desi">Designation</label>
+    @Html.TextBoxFor(a => a.Designation, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+    <label for="sal">salary</label>
+    @Html.TextBoxFor(a => a.Salary, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
+
+
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px;"> Delete</button>|
+
+

@@ -133,23 +133,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmpDetail.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpDetail.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EmpDetail.cs">
-      <DependentUpon>EmpDetailnew.tt</DependentUpon>
+      <DependentUpon>EmpDetail.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmpDetailnew.Context.cs">
+    <Compile Include="Models\EmpDetail.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmpDetailnew.Context.tt</DependentUpon>
+      <DependentUpon>EmpDetail.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmpDetailnew.cs">
+    <Compile Include="Models\EmpDetail1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmpDetailnew.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmpDetailnew.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmpDetailnew.edmx</DependentUpon>
+      <DependentUpon>EmpDetail.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -162,24 +162,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EmpDetailnew.Context.tt">
+    <Content Include="Models\EmpDetail.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmpDetailnew.edmx</DependentUpon>
-      <LastGenOutput>EmpDetailnew.Context.cs</LastGenOutput>
+      <DependentUpon>EmpDetail.edmx</DependentUpon>
+      <LastGenOutput>EmpDetail.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EmpDetailnew.tt">
+    <Content Include="Models\EmpDetail.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmpDetailnew.edmx</DependentUpon>
-      <LastGenOutput>EmpDetailnew.cs</LastGenOutput>
+      <DependentUpon>EmpDetail.edmx</DependentUpon>
+      <LastGenOutput>EmpDetail1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EmpDetailnew.edmx">
+    <EntityDeploy Include="Models\EmpDetail.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmpDetailnew.Designer.cs</LastGenOutput>
+      <LastGenOutput>EmpDetail.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EmpDetailnew.edmx.diagram">
-      <DependentUpon>EmpDetailnew.edmx</DependentUpon>
+    <Content Include="Models\EmpDetail.edmx.diagram">
+      <DependentUpon>EmpDetail.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
