@@ -6,7 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e7a1312ac62a41f5add423039093fd25" Name="Diagram1">
         <EntityTypeShape EntityType="CRUDwithEFModel.EmpDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRUDwithEFModel.Student_Data" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CRUDwithEFModel.Student_Data" Width="1.5" PointX="5.625" PointY="0.875" />
+        <EntityTypeShape EntityType="CRUDwithEFModel.tbl_Dept" Width="1.5" PointX="3.375" PointY="1.25" />
+        <AssociationConnector Association="CRUDwithEFModel.FK__Student_D__DeptI__33D4B598" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

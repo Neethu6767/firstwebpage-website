@@ -18,5 +18,8 @@ namespace CrudOperation.Models
         public string Sname { get; set; }
         public string Department { get; set; }
         public string Addres { get; set; }
+        public Nullable<int> DeptId { get; set; }
+    
+        public virtual tbl_Dept tbl_Dept { get; set; }
     }
 }

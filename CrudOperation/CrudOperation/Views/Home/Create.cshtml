@@ -1,4 +1,5 @@
 ﻿
+
 @model CrudOperation.Models.Student_Data
 
 @{ ViewBag.Title = "Create"; }
@@ -7,16 +8,18 @@
 
 <h2>Create Student</h2>
 
-<form method="post" action="@Url.Action("Create", "Student")">
+
+<form method="post" action="@Url.Action("Create", "Home")">
 
     <label for="sid">Student ID</label>
     @Html.TextBoxFor(a => a.Sid, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
 
     <label for="sname">Student Name</label>
     @Html.TextBoxFor(a => a.Sname, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })
-
-    <label for="depart">Department</label>
-    @Html.TextBoxFor(a => a.Department, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "", @value = ViewBag.DepartmentId })
+<div class="form-group">
+    @Html.Label("Department Name")
+    @Html.TextBox("DepartmentName", ViewBag.DepartmentName as string, new { @class = "form-control", @readonly = "readonly" })
+</div>
 
     <label for="Add">Address</label>
     @Html.TextBoxFor(a => a.Addres, new { @class = "form-control", @type = "text", @autocomplete = "off", @placeholder = "" })

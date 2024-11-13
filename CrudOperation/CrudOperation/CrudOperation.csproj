@@ -152,7 +152,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmpEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeIndexView.cs" />
     <Compile Include="Models\Student_Data.cs">
+      <DependentUpon>EmpEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Dept.cs">
       <DependentUpon>EmpEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +222,7 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
