@@ -22,6 +22,13 @@
           <Property Name="Address" Type="nvarchar" MaxLength="255" />
           <Property Name="SiteName" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'IMS.dbo.EmployeeViewModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EmployeeViewModel">
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>-->
         <EntityType Name="Site">
           <Key>
             <PropertyRef Name="SiteID" />

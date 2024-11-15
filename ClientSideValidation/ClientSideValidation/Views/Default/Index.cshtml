@@ -1,0 +1,95 @@
+﻿
+@model ClientSideValidation.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#formEmployee').submit(function (e) {
+            var isValid = true;
+
+
+            var employeeID = $('#EmployeeID').val();
+            if (employeeID.trim() === "" || isNaN(employeeID)) {
+                isValid = false;
+                $('#EmployeeIDError').text("Employee ID must be a valid number.");
+            } else {
+                $('#EmployeeIDError').text("");
+            }
+
+            var name = $('#Name').val();
+            if (name.trim() === "") {
+                isValid = false;
+                $('#NameError').text("Name cannot be empty.");
+            } else {
+                $('#NameError').text("");
+            }
+
+
+            var email = $('#Email').val();
+            var emailPattern = /^[a-zA-Z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (email.trim() === "" || !emailPattern.test(email)) {
+                isValid = false;
+                $('#EmailError').text("Please enter a valid email address.");
+            } else {
+                $('#EmailError').text("");
+            }
+
+
+            var location = $('#Location').val();
+            if (location.trim() === "") {
+                isValid = false;
+                $('#LocationError').text("Location cannot be empty.");
+            } else {
+                $('#LocationError').text("");
+            }
+
+
+            var salary = $('#Salary').val();
+            if (salary.trim() === "" || isNaN(salary) || salary <= 0) {
+                isValid = false;
+                $('#SalaryError').text("Salary must be a positive number.");
+            } else {
+                $('#SalaryError').text("");
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<form id="formEmployee" form method="get"  action="@Url.Action("Index", "Default")">
+    <div>
+        <label for="EmployeeID">Employee ID:</label>
+        <input type="text" id="EmployeeID" name="EmployeeID" />
+        <span id="EmployeeIDError" style="color:red;"></span>
+    </div>
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" />
+        <span id="NameError" style="color:red;"></span>
+    </div>
+    <div>
+        <label for="Email">Email:</label>
+        <input type="text" id="Email" name="Email" />
+        <span id="EmailError" style="color:red;"></span>
+    </div>
+    <div>
+        <label for="Location">Location:</label>
+        <input type="text" id="Location" name="Location" />
+        <span id="LocationError" style="color:red;"></span>
+    </div>
+    <div>
+        <label for="Salary">Salary:</label>
+        <input type="text" id="Salary" name="Salary" />
+        <span id="SalaryError" style="color:red;"></span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
