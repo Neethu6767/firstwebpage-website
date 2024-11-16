@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<ClientSideValidation.Models.tblPerson>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid">
+    <h2>People Report</h2>
+    <div class="panel-body">
+        <input type="button" id="btngetdata" value="Submit" class="btn-success">
+        <br /><br />
+        <table class="table-responsive table-hover table-bordered" style="width:90%">
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Person Name</th>
+                    <th>Person Phone</th>
+                    <th> Person Type</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="tblPerson">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Event binding for the submit button
+            $('#btngetdata').click(function () {
+                getData();
+            });
+
+            // Function to fetch data from the server
+            function getData() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Home/getAll',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    success: function (response) {
+                        // Empty the table before appending new rows
+                        $('#tblPerson').empty();
+
+                        if (response.length == 0) {
+                            // If no data is returned, show a message
+                            $('#tblPerson').append('<tr><td colspan="5">No Result</td></tr>');
+                        } else {
+                            // Loop through the response and create table rows
+                            $.each(response, function (index, value) {
+                                var row = '<tr>' +
+                                    '<td>' + value.Slno + '</td>' +
+                                    '<td>' + value.PersonName + '</td>' +
+                                    '<td>' + value.PhoneNumber + '</td>' +
+                                    '<td>' + value.PersonType + '</td>' +
+                                    '<td>' + value.Details + '</td>' +
+                                    '</tr>';
+                                $('#tblPerson').append(row);
+                            });
+                        }
+                    },
+                    error: function (err) {
+                        console.error('Error: ', err);
+                    }
+                });
+            }
+        });
+    </script>
+}

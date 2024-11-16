@@ -26,5 +26,6 @@ namespace ClientSideValidation.Models
         }
     
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<tblPerson> tblPersons { get; set; }
     }
 }

@@ -10,7 +10,18 @@
     <Property Name="Location" Type="varchar" MaxLength="50" />
     <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
+  <EntityType Name="tblPerson">
+    <Key>
+      <PropertyRef Name="Slno" />
+    </Key>
+    <Property Name="Slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonName" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="PersonType" Type="varchar" MaxLength="50" />
+    <Property Name="Details" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityContainer Name="Online_businessModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPerson" EntityType="Self.tblPerson" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

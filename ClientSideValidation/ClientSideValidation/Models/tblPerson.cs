@@ -12,12 +12,12 @@ namespace ClientSideValidation.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class tblPerson
     {
-        public int EmployeeID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Location { get; set; }
-        public Nullable<decimal> Salary { get; set; }
+        public int Slno { get; set; }
+        public string PersonName { get; set; }
+        public Nullable<int> PhoneNumber { get; set; }
+        public string PersonType { get; set; }
+        public string Details { get; set; }
     }
 }

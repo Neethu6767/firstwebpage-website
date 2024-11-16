@@ -12,5 +12,16 @@
   </EntityType>
   <EntityContainer Name="Online_businessEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="tblPersons" EntityType="Online_businessModel.tblPerson" />
   </EntityContainer>
+  <EntityType Name="tblPerson">
+    <Key>
+      <PropertyRef Name="Slno" />
+    </Key>
+    <Property Name="Slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="PersonType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
