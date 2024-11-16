@@ -25,48 +25,43 @@
         </table>
     </div>
 </div>
-
-@section Scripts {
+@section Scripts{
     <script type="text/javascript">
         $(document).ready(function () {
-            // Event binding for the submit button
             $('#btngetdata').click(function () {
-                getData();
-            });
+                getdta();
 
-            // Function to fetch data from the server
-            function getData() {
+            })
+
+            function getdta() {
+                debugger;
                 $.ajax({
                     type: 'GET',
                     url: '/Home/getAll',
                     contentType: 'application/json;charset=utf-8',
-                    dataType: 'json',
+                    dataType: 'Json',
                     success: function (response) {
-                        // Empty the table before appending new rows
-                        $('#tblPerson').empty();
-
                         if (response.length == 0) {
-                            // If no data is returned, show a message
-                            $('#tblPerson').append('<tr><td colspan="5">No Result</td></tr>');
-                        } else {
-                            // Loop through the response and create table rows
+                            tblPerson.append('<tr><td>No Result</td></tr>');
+
+                        }
+                        else {
+                            response.Json.parse(response);
+                            console.log(response);
+                            var fata;
                             $.each(response, function (index, value) {
-                                var row = '<tr>' +
-                                    '<td>' + value.Slno + '</td>' +
-                                    '<td>' + value.PersonName + '</td>' +
-                                    '<td>' + value.PhoneNumber + '</td>' +
-                                    '<td>' + value.PersonType + '</td>' +
-                                    '<td>' + value.Details + '</td>' +
-                                    '</tr>';
-                                $('#tblPerson').append(row);
+                                fata = '<tr><td>' + value.Slno + '</td><td>' + value.PersonName + '</td><td>' + value.PhoneNumber + '</td><td>' +
+                                    value.PersonType + '</td></td>' + value.Details + '</td><tr>';
+                                $('#tblPerson').append(fata)
                             });
                         }
                     },
                     error: function (err) {
-                        console.error('Error: ', err);
+                        console.error(err);
                     }
                 });
             }
-        });
+        })
     </script>
 }
+

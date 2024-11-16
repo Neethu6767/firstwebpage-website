@@ -1,0 +1,13 @@
+﻿@{ ViewBag.Title = "Index"; }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<h2>Index</h2>
+<div id="dv1">This is the default jquery view</div>
+<input type="button" id="btn1" name="bt1" value="Click Me">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            $("#dv1").toggle();
+        });
+    });
+</script>
