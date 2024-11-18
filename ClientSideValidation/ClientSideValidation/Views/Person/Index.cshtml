@@ -10,6 +10,30 @@
     <div class="panel-body">
         <input type="button" id="btngetdata" value="Submit" class="btn-success">
         <br /><br />
+        <form id="addPersonForm">
+            
+            <div>
+                <label for="PersonName">Person Name:</label>
+                <input type="text" id="PersonName" name="PersonName" required />
+            </div>
+            <div>
+                <label for="PhoneNumber">Phone Number:</label>
+                <input type="text" id="PhoneNumber" name="PhoneNumber" required />
+            </div>
+            <div>
+                <label for="PersonType">Person Type:</label>
+                <input type="text" id="PersonType" name="PersonType" required />
+            </div>
+            <div>
+                <label for="Details">Details:</label>
+                <input type="text" id="Details" name="Details" required />
+            </div>
+            <div>
+                <button type="button" id="btnAddPerson" class="btn-primary">Add Person</button>
+            </div>
+        </form>
+
+        <br /><br />
         <table class="table-responsive table-hover table-bordered" style="width:90%">
             <thead>
                 <tr>
@@ -18,6 +42,7 @@
                     <th>Person Phone</th>
                     <th> Person Type</th>
                     <th>Details</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tblPerson">
@@ -34,26 +59,132 @@
             })
 
             function getdta() {
-                debugger;
                 $.ajax({
                     type: 'GET',
-                    url: '/Home/getAll',
-                    contentType: 'application/json;charset=utf-8',
-                    dataType: 'Json',
-                    success: function (response) {
-                        if (response.length == 0) {
-                            tblPerson.append('<tr><td>No Result</td></tr>');
+                    url: '/Person/GetAll',
+                    success: function (data) {
+                        $('#tblPerson').empty(); // Clear the table before appending new data
 
-                        }
-                        else {
-                            response.Json.parse(response);
-                            console.log(response);
-                            var fata;
-                            $.each(response, function (index, value) {
-                                fata = '<tr><td>' + value.Slno + '</td><td>' + value.PersonName + '</td><td>' + value.PhoneNumber + '</td><td>' +
-                                    value.PersonType + '</td></td>' + value.Details + '</td><tr>';
-                                $('#tblPerson').append(fata)
+                        // Iterate through the data and display it
+                        data.forEach(function (value) {
+                            var row = '<tr>';
+                            row += '<td>' + value.Slno + '</td>';
+                            row += '<td>' + value.PersonName + '</td>';
+                            row += '<td>' + value.PhoneNumber + '</td>';
+                            row += '<td>' + value.PersonType + '</td>';
+                            row += '<td>' + value.Details + '</td>';
+                            row += '<td><button class="btn btn-warning btn-edit" data-id="' + value.Slno + '">Edit</button> ';
+                            row += '<button class="btn btn-danger btn-delete" data-id="' + value.Slno + '">Delete</button></td>';
+                            row += '</tr>';
+
+                            $('#tblPerson').append(row);
+                        });
+
+                        // Attach event handlers to the Edit and Delete buttons
+                        $('.btn-edit').click(function () {
+                            var id = $(this).data('id');
+                            editPerson(id);
+                        });
+
+                        $('.btn-delete').click(function () {
+                            var id = $(this).data('id');
+                            deletePerson(id);
+                        });
+                    },
+                    error: function (err) {
+                        console.error(err);
+                    }
+                });
+            }
+            $('#btnAddPerson').click(function () {
+                var personData = {
+                   // Slno: $('#Slno').val(),
+                    PersonName: $('#PersonName').val(),
+                    PhoneNumber: $('#PhoneNumber').val(),
+                    PersonType: $('#PersonType').val(),
+                    Details: $('#Details').val()
+                };
+
+                // POST request to save data
+                $.ajax({
+                    type: 'POST',
+                    url: '/Person/AddPerson',
+                    data: personData,
+                    success: function (data) {
+                        // After successfully adding, reload the data table
+                        getData();
+                        // Clear the form fields
+                        $('#addPersonForm')[0].reset();
+                    },
+                    error: function (err) {
+                        console.error(err);
+                    }
+                });
+            });
+        });
+
+        // Edit person
+        function editPerson(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/Person/GetAll',
+                success: function (data) {
+                    var person = data.find(p => p.Slno === id);
+                    if (person) {
+                        
+                        $('#PersonName').val(person.PersonName);
+                        $('#PhoneNumber').val(person.PhoneNumber);
+                        $('#PersonType').val(person.PersonType);
+                        $('#Details').val(person.Details);
+                        $('#btnAddPerson').text('Update Person').attr('id', 'btnUpdatePerson');
+
+                        
+                        $('#btnUpdatePerson').click(function () {
+                            var updatedData = {
+                                Slno: person.Slno,
+                                PersonName: $('#PersonName').val(),
+                                PhoneNumber: $('#PhoneNumber').val(),
+                                PersonType: $('#PersonType').val(),
+                                Details: $('#Details').val()
+                            };
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Person/UpdatePerson',
+                                data: updatedData,
+                                success: function (response) {
+                                    if (response.success) {
+                                        alert(response.message);
+                                        getData();
+                                        $('#addPersonForm')[0].reset();
+                                        $('#btnUpdatePerson').text('Add Person').attr('id', 'btnAddPerson');
+                                    } else {
+                                        alert(response.message);
+                                    }
+                                }
                             });
+                        });
+                    }
+                }
+            });
+        }
+
+
+     
+       
+        // Delete person
+        function deletePerson(id) {
+            if (confirm('Are you sure you want to delete this person?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Person/DeletePerson',
+                    data: { Slno: id },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            getdta(); // Reload the data table
+                        } else {
+                            alert(response.message);
                         }
                     },
                     error: function (err) {
@@ -61,7 +192,7 @@
                     }
                 });
             }
-        })
-    </script>
+        }
+    </Script>
 }
 
